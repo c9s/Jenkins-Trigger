@@ -32,6 +32,8 @@ sub BUILDARGS {
     return \%args;
 }
 
+
+
 sub trigger {
     my ($self, $job, $task ) = @_;
     my $uri = URI->new( $self->protocol . '://' . $self->host . ':' . $self->port . '/' . $job . '/build');
@@ -62,6 +64,18 @@ Jenkins::Trigger - trig your Jenkins Job!
 =head1 DESCRIPTION
 
 Jenkins::Trigger is
+
+=head1 REFERENCE
+
+Jenkins with Git Plugin:
+
+    $ curl http://yourserver/jenkins/git/notifyCommit?url=<URL of the Git repository>
+
+L<https://wiki.jenkins-ci.org/display/JENKINS/Building+a+software+project#Buildingasoftwareproject-Buildsbysourcechanges>
+
+L<http://stackoverflow.com/questions/5784329/how-can-i-make-jenkins-ci-with-git-trigger-on-pushes-to-master>
+
+L<http://kohsuke.org/2011/12/01/polling-must-die-triggering-jenkins-builds-from-a-git-hook/>
 
 =head1 AUTHOR
 

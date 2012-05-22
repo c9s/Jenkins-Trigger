@@ -1,27 +1,44 @@
-This is Perl module Jenkins::Trigger.
+NAME
+    Jenkins::Trigger - trigger your Jenkins Job!
 
-INSTALLATION
+SYNOPSIS
+        use Jenkins::Trigger;
+        Jenkins::Trigger->new( 
+            host => 'build.your-machine.dev',
+            port => 8080,
+        )->trigger( 'JobName' );
 
-Jenkins::Trigger installation is straightforward. If your CPAN shell is set up,
-you should just be able to do
+DESCRIPTION
+    Jenkins::Trigger is a simple tool for triggering projects on Jenkins CI.
 
-    % cpan Jenkins::Trigger
+    You can use this module to hook your projects on Jenkins, and trigger
+    jenkins jobs easily.
 
-Download it, unpack it, then build it as per the usual:
+    You can simple write a git hook script:
 
-    % perl Makefile.PL
-    % make && make test
+        #!/usr/bin/env perl
+        use Jenkins::Trigger;
+        Jenkins::Trigger->new( host => 'your.host' )->trigger( 'YourJob' );
 
-Then install it:
+REFERENCE
+    Jenkins with Git Plugin:
 
-    % make install
+        $ curl http://yourserver/jenkins/git/notifyCommit?url=<URL of the Git repository>
 
-DOCUMENTATION
+    <https://wiki.jenkins-ci.org/display/JENKINS/Building+a+software+project
+    #Buildingasoftwareproject-Buildsbysourcechanges>
 
-Jenkins::Trigger documentation is available as in POD. So you can do:
+    <http://stackoverflow.com/questions/5784329/how-can-i-make-jenkins-ci-wi
+    th-git-trigger-on-pushes-to-master>
 
-    % perldoc Jenkins::Trigger
+    <http://kohsuke.org/2011/12/01/polling-must-die-triggering-jenkins-build
+    s-from-a-git-hook/>
 
-to read the documentation online with your favorite pager.
+AUTHOR
+    Yo-An Lin <cornelius.howl {at} gmail.com>
 
-Yo-An Lin
+SEE ALSO
+LICENSE
+    This library is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself.
+

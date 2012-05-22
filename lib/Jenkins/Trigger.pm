@@ -36,6 +36,7 @@ sub BUILDARGS {
 
 sub trigger {
     my ($self, $job, $task ) = @_;
+    $task ||= 'BUILD';
     my $uri = URI->new( $self->protocol . '://' . $self->host . ':' . $self->port . '/' . $job . '/build');
     $uri->query_form( token => $task );
 

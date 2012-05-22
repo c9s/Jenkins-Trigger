@@ -41,7 +41,8 @@ sub trigger {
     $uri->query_form( token => $task );
 
     my $response = $self->user_agent->get( $uri );
-    return $response if $response->is_success;
+    return $response;
+    # return $response if $response->is_success;
     # die $response->status_line;
     # return $response;
 }

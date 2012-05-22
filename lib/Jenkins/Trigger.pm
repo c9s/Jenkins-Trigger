@@ -64,7 +64,16 @@ Jenkins::Trigger - trig your Jenkins Job!
 
 =head1 DESCRIPTION
 
-Jenkins::Trigger is
+Jenkins::Trigger is a simple tool for triggering projects on Jenkins CI.
+
+You can use this module to hook your projects on Jenkins, and trigger jenkins
+jobs easily.
+
+You can simple write a git hook script:
+
+    #!/usr/bin/env perl
+    use Jenkins::Trigger;
+    Jenkins::Trigger->new( host => 'your.host' )->trigger( 'YourJob' );
 
 =head1 REFERENCE
 

@@ -1,0 +1,47 @@
+# NAME
+
+Jenkins::Trigger - trigger your Jenkins Job!
+
+# SYNOPSIS
+
+    use Jenkins::Trigger;
+    Jenkins::Trigger->new( 
+        host => 'build.your-machine.dev',
+        port => 8080,
+    )->trigger( 'JobName' );
+
+# DESCRIPTION
+
+Jenkins::Trigger is a simple tool for triggering projects on Jenkins CI.
+
+You can use this module to hook your projects on Jenkins, and trigger jenkins
+jobs easily.
+
+You can simple write a git hook script:
+
+    #!/usr/bin/env perl
+    use Jenkins::Trigger;
+    Jenkins::Trigger->new( host => 'your.host' )->trigger( 'YourJob' );
+
+# REFERENCE
+
+Jenkins with Git Plugin:
+
+    $ curl http://yourserver/jenkins/git/notifyCommit?url=<URL of the Git repository>
+
+[https://wiki.jenkins-ci.org/display/JENKINS/Building+a+software+project#Buildingasoftwareproject-Buildsbysourcechanges](https://wiki.jenkins-ci.org/display/JENKINS/Building+a+software+project#Buildingasoftwareproject-Buildsbysourcechanges)
+
+[http://stackoverflow.com/questions/5784329/how-can-i-make-jenkins-ci-with-git-trigger-on-pushes-to-master](http://stackoverflow.com/questions/5784329/how-can-i-make-jenkins-ci-with-git-trigger-on-pushes-to-master)
+
+[http://kohsuke.org/2011/12/01/polling-must-die-triggering-jenkins-builds-from-a-git-hook/](http://kohsuke.org/2011/12/01/polling-must-die-triggering-jenkins-builds-from-a-git-hook/)
+
+# AUTHOR
+
+Yo-An Lin <cornelius.howl {at} gmail.com>
+
+# SEE ALSO
+
+# LICENSE
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.

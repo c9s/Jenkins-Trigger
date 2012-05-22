@@ -51,16 +51,15 @@ __END__
 
 =head1 NAME
 
-Jenkins::Trigger - trig your Jenkins Job!
+Jenkins::Trigger - trigger your Jenkins Job!
 
 =head1 SYNOPSIS
 
     use Jenkins::Trigger;
-    my $trigger = Jenkins::Trigger->new( 
+    Jenkins::Trigger->new( 
         host => 'build.your-machine.dev',
         port => 8080,
-    );
-    $trigger->trigger( 'JobName', 'BUILD' );
+    )->trigger( 'JobName' );
 
 =head1 DESCRIPTION
 
